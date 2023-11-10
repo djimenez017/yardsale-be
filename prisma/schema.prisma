@@ -18,9 +18,9 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
-  YardSale       YardSale[]
-  Address        Address[]
-  SavedYardSales SavedYardSales[]
+  yardSale       YardSale[]
+  address        Address[]
+  savedYardSales SavedYardSales[]
 }
 
 model Account {
@@ -71,9 +71,9 @@ model YardSale {
   imageId        String
   image          Image            @relation(fields: [imageId], references: [id], onDelete: Cascade)
   createdAt      DateTime         @default(now())
-  YardSaleTags   YardSaleTags[]
-  SavedYardSales SavedYardSales[]
-  Dates          Date[]
+  yardSaleTags   YardSaleTags[]
+  savedYardSales SavedYardSales[]
+  dates          Date[]
 }
 
 model Address {
@@ -86,7 +86,7 @@ model Address {
   zip       String
   country   String
   createdAt DateTime   @default(now())
-  YardSale  YardSale[]
+  yardSale  YardSale[]
 }
 
 model Image {
@@ -100,7 +100,7 @@ model Tag {
   id           String         @id @default(cuid())
   name         String
   createdAt    DateTime       @default(now())
-  YardSaleTags YardSaleTags[]
+  yardSaleTags YardSaleTags[]
 }
 
 model YardSaleTags {
