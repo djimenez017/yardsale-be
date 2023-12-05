@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-
+const {resolvers} = require('./schema/Resolvers');
 const server = new ApolloServer({
   typeDefs,
   resolvers,

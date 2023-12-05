@@ -1,16 +1,13 @@
-const books = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const resolvers = {
   Query: {
-    books: () => books,
+    users: async () => {
+    return await prisma.user.findMany();
+  }
   },
 };
+
+module.exports = {resolvers};

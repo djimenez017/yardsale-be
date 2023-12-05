@@ -73,7 +73,7 @@ model YardSale {
   createdAt      DateTime         @default(now())
   yardSaleTags   YardSaleTags[]
   savedYardSales SavedYardSales[]
-  dates          Date[]
+  dates          YardSaleDate[]
 }
 
 model Address {
@@ -121,7 +121,7 @@ model SavedYardSales {
   @@id([yardSaleId, userId])
 }
 
-model Date {
+model YardSaleDate {
   id         String   @id @default(cuid())
   date       String
   createdAt  DateTime @default(now())

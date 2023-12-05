@@ -93,7 +93,7 @@ const typeDefs = gql `
     user: User!
   }
 
-  type Date {
+  type YardSaleDate {
     id: String!
     yardSaleId: String!
     date: String!
