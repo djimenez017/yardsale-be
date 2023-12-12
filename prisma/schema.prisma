@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,10 +14,10 @@ model User {
   emailVerified  DateTime?
   image          String?
   accounts       Account[]
-  sessions       Session[]
-  yardSale       YardSale[]
   address        Address[]
   savedYardSales SavedYardSales[]
+  sessions       Session[]
+  yardSale       YardSale[]
 }
 
 model Account {
@@ -29,15 +26,14 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -61,31 +57,31 @@ model VerificationToken {
 model YardSale {
   id             String           @id @default(cuid())
   userId         String
-  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   addressId      String
-  address        Address          @relation(fields: [addressId], references: [id], onDelete: Cascade)
   title          String
   description    String
   date           String
   hours          String
   imageId        String
-  image          Image            @relation(fields: [imageId], references: [id], onDelete: Cascade)
   createdAt      DateTime         @default(now())
-  yardSaleTags   YardSaleTags[]
   savedYardSales SavedYardSales[]
+  address        Address          @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  image          Image            @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   dates          YardSaleDate[]
+  yardSaleTags   YardSaleTags[]
 }
 
 model Address {
   id        String     @id @default(cuid())
   userId    String
-  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   street    String
   city      String
   state     String
   zip       String
   country   String
   createdAt DateTime   @default(now())
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   yardSale  YardSale[]
 }
 
@@ -105,18 +101,18 @@ model Tag {
 
 model YardSaleTags {
   yardSaleId String
-  yardSale   YardSale @relation(fields: [yardSaleId], references: [id])
   tagId      String
   tag        Tag      @relation(fields: [tagId], references: [id])
+  yardSale   YardSale @relation(fields: [yardSaleId], references: [id])
 
   @@id([yardSaleId, tagId])
 }
 
 model SavedYardSales {
   yardSaleId String
-  yardSale   YardSale @relation(fields: [yardSaleId], references: [id])
   userId     String
   user       User     @relation(fields: [userId], references: [id])
+  yardSale   YardSale @relation(fields: [yardSaleId], references: [id])
 
   @@id([yardSaleId, userId])
 }
