@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+import gql from 'graphql-tag';
 export const typeDefs = gql `
   type User {
     id: String!
@@ -21,7 +21,6 @@ export const typeDefs = gql `
     providerAccountId: String!
     refresh_token: String
     access_token: String
-    expires_at: String
     expires_at: String
     token_type: String
     scope: String
@@ -48,11 +47,11 @@ export const typeDefs = gql `
     addressId: String!
     title: String!
     description: String!
-    dates: [Date!]!
+    dates: [YardSaleDate!]!
     hours: String!
     imageId: String!
     yardSaleTags: [Tag!]!
-    savedYardSales: [savedYardSales!]!
+    savedYardSales: [SavedYardSales!]!
   }
 
   type Address {
@@ -104,5 +103,30 @@ export const typeDefs = gql `
     ADMIN
     VIEWER
     SELLER
+  }
+
+  type Query {
+    users: [User!]!
+    user(id: String!): User!
+    accounts: [Account!]!
+    account(id: String!): Account!
+    sessions: [Session!]!
+    session(id: String!): Session!
+    verificationTokens: [VerificationToken!]!
+    verificationToken(id: String!): VerificationToken!
+    yardSales: [YardSale!]!
+    yardSale(id: String!): YardSale!
+    addresses: [Address!]!
+    address(id: String!): Address!
+    images: [Image!]!
+    image(id: String!): Image!
+    tags: [Tag!]!
+    tag(id: String!): Tag!
+    yardSaleTags: [yardSaleTags!]!
+    yardSaleTag(id: String!): yardSaleTags!
+    savedYardSales: [SavedYardSales!]!
+    savedYardSale(id: String!): SavedYardSales!
+    yardSaleDates: [YardSaleDate!]!
+    yardSaleDate(id: String!): YardSaleDate!
   }
 `;
