@@ -3,10 +3,10 @@ const testData = {
     {
       id: "1",
       name: "Leanne Graham",
-      email: "Sincere@april.biz",
+      email: 'Sincere@april.biz"',
       emailVerified: true,
       image: "https://randomuser.me/api/portraits/women/56.jpg",
-      yardSale: [
+      yardSales: [
         {
           id: "1",
           userId: "1",
@@ -45,10 +45,10 @@ const testData = {
     {
       id: "2",
       name: "Ervin Howell",
-      email: "Shanna@melissa.tv",
+      email: 'Shanna@melissa.tv"',
       emailVerified: true,
       image: "https://randomuser.me/api/portraits/men/21.jpg",
-      yardSale: [
+      yardSales: [
         {
           id: "2",
           userId: "2",
@@ -77,10 +77,10 @@ const testData = {
     {
       id: "3",
       name: "Clementine Bauch",
-      email: "Nathan@yesenia.net",
+      email: 'Nathan@yesenia.net""',
       emailVerified: true,
       image: "https://randomuser.me/api/portraits/men/4.jpg",
-      yardSale: [
+      yardSales: [
         {
           id: "3",
           userId: "3",
@@ -113,7 +113,7 @@ const testData = {
       email: "Julianne.OConner@kory.org",
       emailVerified: true,
       image: "https://randomuser.me/api/portraits/women/57.jpg",
-      yardSale: [
+      yardSales: [
         {
           id: "4",
           userId: "4",
@@ -161,10 +161,5 @@ const testData = {
     },
   ],
 };
-console.log(testData.users.map((user) => user.yardSale));
-export const resolvers = {
-  Query: {
-    users: () => testData.users,
-    //
-  },
-};
+
+export default testData;

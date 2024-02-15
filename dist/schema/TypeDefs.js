@@ -129,4 +129,104 @@ export const typeDefs = gql `
     yardSaleDates: [YardSaleDate!]!
     yardSaleDate(id: String!): YardSaleDate!
   }
+
+  type Mutation {
+  createUser(
+    name: String!
+    email: String!
+    emailVerified: Boolean!
+    image: String!
+    role: Role!
+  ): User!
+  
+  updateUser(
+    id: String!
+    name: String
+    email: String
+    emailVerified: Boolean
+    image: String
+    role: Role
+  ): User!
+
+
+  deleteUser(id: String!): User!
+
+  createYardSale( 
+    userId: String!
+    addressId: String!
+    title: String!
+    description: String!
+    hours: String!
+    imageId: String!
+  ): YardSale!
+
+  updateYardSale(
+    id: String!
+    userId: String
+    addressId: String
+    title: String
+    description: String
+    hours: String
+    imageId: String
+  ): YardSale!
+
+  deleteYardSale(id: String!): YardSale!
+
+  createAddress(
+    userId: String!
+    street: String!
+    city: String!
+    state: String!
+    zip: String!
+    country: String!
+  ): Address!
+
+  updateAddress(
+    id: String!
+    userId: String
+    street: String
+    city: String
+    state: String
+    zip: String
+    country: String
+  ): Address!
+
+  deleteAddress(id: String!): Address!
+
+  createImage(
+    url: String!
+  ): Image!
+
+  updateImage(
+    id: String!
+    url: String
+  ): Image! 
+
+  deleteImage(id: String!): Image!
+
+  createTag(
+    name: String!
+  ): Tag!
+
+  updateTag(
+    id: String!
+    name: String
+  ): Tag!
+
+  deleteTag(id: String!): Tag!
+
+  createYardSaleTag(
+    yardSaleId: String!
+    tagId: String!
+  ): yardSaleTags!
+
+  deleteYardSaleTag(id: String!): yardSaleTags!
+
+  createSavedYardSale(
+    yardSaleId: String!
+    userId: String!
+  ): SavedYardSales!
+
+  
+  }
 `;
