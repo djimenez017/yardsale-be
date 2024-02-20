@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const typeDefs = gql`
   type User {
@@ -132,103 +132,83 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-  createUser(
-    name: String!
-    email: String!
-    emailVerified: Boolean!
-    image: String!
-    role: Role!
-  ): User!
-  
-  updateUser(
-    id: String!
-    name: String
-    email: String
-    emailVerified: Boolean
-    image: String
-    role: Role
-  ): User!
+    createUser(
+      name: String!
+      email: String!
+      emailVerified: Boolean!
+      image: String!
+      role: Role!
+    ): User!
 
+    updateUser(
+      id: String!
+      name: String
+      email: String
+      emailVerified: Boolean
+      image: String
+      role: Role
+    ): User!
 
-  deleteUser(id: String!): User!
+    deleteUser(id: String!): User!
 
-  createYardSale( 
-    userId: String!
-    addressId: String!
-    title: String!
-    description: String!
-    hours: String!
-    imageId: String!
-  ): YardSale!
+    createYardSale(
+      userId: String!
+      addressId: String!
+      title: String!
+      description: String!
+      hours: String!
+      imageId: String!
+    ): YardSale!
 
-  updateYardSale(
-    id: String!
-    userId: String
-    addressId: String
-    title: String
-    description: String
-    hours: String
-    imageId: String
-  ): YardSale!
+    updateYardSale(
+      id: String!
+      userId: String
+      addressId: String
+      title: String
+      description: String
+      hours: String
+      imageId: String
+    ): YardSale!
 
-  deleteYardSale(id: String!): YardSale!
+    deleteYardSale(id: String!): YardSale!
 
-  createAddress(
-    userId: String!
-    street: String!
-    city: String!
-    state: String!
-    zip: String!
-    country: String!
-  ): Address!
+    createAddress(
+      userId: String!
+      street: String!
+      city: String!
+      state: String!
+      zip: String!
+      country: String!
+    ): Address!
 
-  updateAddress(
-    id: String!
-    userId: String
-    street: String
-    city: String
-    state: String
-    zip: String
-    country: String
-  ): Address!
+    updateAddress(
+      id: String!
+      userId: String
+      street: String
+      city: String
+      state: String
+      zip: String
+      country: String
+    ): Address!
 
-  deleteAddress(id: String!): Address!
+    deleteAddress(id: String!): Address!
 
-  createImage(
-    url: String!
-  ): Image!
+    createImage(url: String!): Image!
 
-  updateImage(
-    id: String!
-    url: String
-  ): Image! 
+    updateImage(id: String!, url: String): Image!
 
-  deleteImage(id: String!): Image!
+    deleteImage(id: String!): Image!
 
-  createTag(
-    name: String!
-  ): Tag!
+    createTag(name: String!): Tag!
 
-  updateTag(
-    id: String!
-    name: String
-  ): Tag!
+    updateTag(id: String!, name: String): Tag!
 
-  deleteTag(id: String!): Tag!
+    deleteTag(id: String!): Tag!
 
-  createYardSaleTag(
-    yardSaleId: String!
-    tagId: String!
-  ): yardSaleTags!
+    createYardSaleTag(yardSaleId: String!, tagId: String!): yardSaleTags!
 
-  deleteYardSaleTag(id: String!): yardSaleTags!
+    deleteYardSaleTag(id: String!): yardSaleTags!
 
-  createSavedYardSale(
-    yardSaleId: String!
-    userId: String!
-  ): SavedYardSales!
-
-  
+    createSavedYardSale(yardSaleId: String!, userId: String!): SavedYardSales!
   }
 `;
-
